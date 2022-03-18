@@ -1,0 +1,162 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="almacen.list">
+      <field name="name">almacen list</field>
+      <field name="model">almacen.almacen</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="almacen.action_window">
+      <field name="name">almacen window</field>
+      <field name="res_model">almacen.almacen</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="almacen.action_server">
+      <field name="name">almacen server</field>
+      <field name="model_id" ref="model_almacen_almacen"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="almacen" id="almacen.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="almacen.menu_1" parent="almacen.menu_root"/>
+    <menuitem name="Menu 2" id="almacen.menu_2" parent="almacen.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="almacen.menu_1_list" parent="almacen.menu_1"
+              action="almacen.action_window"/>
+    <menuitem name="Server to list" id="almacen" parent="almacen.menu_2"
+              action="almacen.action_server"/>
+-->
+
+    <!-- VISTA MOZOS -->
+    <record model="ir.ui.view" id="almacen.mozos_list_view">
+      <field name="name">almacen.mozos.view.tree</field>
+      <field name="model">almacen.mozos</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class="oe_button_box">
+              <BUTTONS/>
+            </div>
+            <group>
+              <group>
+                <h1>VISTA MOZOS</h1>
+              </group>
+            </group>
+            <notebook>
+              <page string="CREATE">
+                <group col="2">
+                  <field name="dniMozo" style="width:10%%"/>
+                </group>
+                <group col="2">
+                  <field name="nombreMozo" style="width:20%%"/>
+                </group>
+                <group col="2">
+                  <field name="fechaNacimiento" style="width:10%%"/>
+                </group>
+                <group col="2">
+                  <field name="turnoTrabajo" style="width:10%%"/>
+                </group>
+                <group col="2">
+                  <field name="edad" style="width:10%%"/>
+                </group>
+                <group col="2">
+                  <field name="productos_id" style="10%"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="almacen.mozos_list_view">
+      <field name="name">almacen.mozos.view.tree</field>
+      <field name="model">almacen.mozos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="dniMozo"/>
+          <field name="nombreMozo"/>
+          <field name="fechaNacimiento"/>
+          <field name="turnoTrabajo"/>
+          <field name="edad"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <!-- VISTA PRODUCTOS -->
+    <record model="ir.ui.view" id="almacen.productos_list_view">
+      <field name="name">almacen.productos.view.tree</field>
+      <field name="model">almacen.productos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idProducto"/>
+          <field name="nombreProducto"/>
+          <field name="fechaEntrada"/>
+          <field name="fechaSalida"/>
+          <field name="stock"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <!-- DEFINICION DE MENUS-->
+    <record model="ir.actions.act_window" id="almacen.mozos_action_window">
+      <field name="name">Mozos</field>
+      <field name="res_model">almacen.mozos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="almacen.productos_action_window">
+      <field name="name">Productos</field>
+      <field name="res_model">almacen.productos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Almacen" id="almacen.menu_root"/>
+
+    <menuitem name="Almacen" id="almacen.menu_root" web_icon="almacen,static/description/icon.png"/>
+
+    <menuitem name="Mozos" id="almacen.mozos_menu" parent="almacen.menu_root" action="almacen.mozos_action_window"/>
+
+    <menuitem name="Productos" id="almacen.productos_menu" parent="almacen.menu_root" action="almacen.productos_action_window"/>
+
+
+
+
+  </data>
+</odoo>

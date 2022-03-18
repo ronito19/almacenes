@@ -1,0 +1,174 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="envios.list">
+      <field name="name">envios list</field>
+      <field name="model">envios.envios</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="envios.action_window">
+      <field name="name">envios window</field>
+      <field name="res_model">envios.envios</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="envios.action_server">
+      <field name="name">envios server</field>
+      <field name="model_id" ref="model_envios_envios"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="envios" id="envios.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="envios.menu_1" parent="envios.menu_root"/>
+    <menuitem name="Menu 2" id="envios.menu_2" parent="envios.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="envios.menu_1_list" parent="envios.menu_1"
+              action="envios.action_window"/>
+    <menuitem name="Server to list" id="envios" parent="envios.menu_2"
+              action="envios.action_server"/>
+-->
+
+
+    <!-- VISTA TRANSPORTISTAS -->
+    <record model="ir.ui.view" id="envios.transportistas_list_view">
+      <field name="name">envios.transportistas.view.tree</field>
+      <field name="model">envios.transportistas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class="oe_button_box">
+              <BUTTONS/>
+            </div>
+            <group>
+              <group>
+                <h1>VISTA TRANSPORTISTAS</h1>
+              </group>
+            </group>
+            <notebook>
+              <page string="CREATE">
+                <group>
+                  <field name="dniTransportista"/>
+                </group>
+                <group>
+                  <field name="nombreTransportista"/>
+                </group>
+                <group>
+                  <field name="numeroPedido"/>
+                </group>
+                <group>
+                  <field name="nombreProducto"/>
+                </group>
+                <group>
+                  <field name="fechaReparto"/>
+                </group>
+                <group>
+                  <field name="cantidadProducto"/>
+                </group>
+                <group>
+                  <field name="kilosCarga"/>
+                </group>
+                <group>
+                  <field name="vehiculos_id"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="envios.transportistas_list_view">
+      <field name="name">envios.transportistas.view.tree</field>
+      <field name="model">envios.transportistas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="dniTransportista"/>
+          <field name="nombreTransportista"/>
+          <field name="numeroPedido"/>
+          <field name="nombreProducto"/>
+          <field name="fechaReparto"/>
+          <field name="cantidadProducto"/>
+          <field name="kilosCarga"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+    <!-- VISTA VEHICULOS -->
+    <record model="ir.ui.view" id="envios.vehiculos_list_view">
+      <field name="name">envios.vehiculos.view.tree</field>
+      <field name="model">envios.vehiculos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idVehiculo"/>
+          <field name="matriculaVehiculo"/>
+          <field name="marcaVehiculo"/>
+          <field name="tamañoVehiculo"/>
+          <field name="nombreTransportista"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <!-- DEFINICION DE MENUS-->
+    <record model="ir.actions.act_window" id="envios.transportistas_action_window">
+      <field name="name">Transportistas</field>
+      <field name="res_model">envios.transportistas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="envios.vehiculos_action_window">
+      <field name="name">Vehiculos</field>
+      <field name="res_model">envios.vehiculos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Envios" id="envios.menu_root"/>
+
+    <menuitem name="Envios" id="envios.menu_root" web_icon="envios,static/description/icon.png"/>
+
+    <menuitem name="Transportistas" id="envios.transportistas_menu" parent="envios.menu_root" action="envios.transportistas_action_window"/>
+
+    <menuitem name="Vehiculos" id="envios.vehiculos_menu" parent="envios.menu_root" action="envios.vehiculos_action_window"/>
+
+
+
+
+
+  </data>
+</odoo>

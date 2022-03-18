@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_almacen_mozos_role1,almacen.mozos.role1,model_almacen_mozos,almacen.group_almacen_role1,1,1,1,1
+access_almacen_productos_role1,almacen.productos.role1,model_almacen_productos,almacen.group_almacen_role1,1,1,1,1
+access_almacen_mozos_role2,almacen.mozos.role2,model_almacen_mozos,almacen.group_almacen_role2,1,0,0,0
+acceso_almacen_productos_role2,almacen.productos.role2,model_almacen_productos,almacen.group_almacen_role2,1,1,1,1
+

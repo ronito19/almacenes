@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_envios_transportistas_role1,envios.transportistas.role1,model_envios_transportistas,envios.group_envios_role1,1,1,1,1
+access_envios_vehiculos_role1,envios.vehiculos.role1,model_envios_vehiculos,envios.group_envios_role1,1,1,1,1
+access_envios_transportistas_role2,envios.transportistas.role2,model_envios_transportistas,envios.group_envios_role2,1,0,0,0
+access_envios_vehiculos_role2,envios.vehiculos.role2,model_envios_vehiculos,envios.group_envios_role2,1,1,1,1

@@ -1,0 +1,66 @@
+<odoo>
+    <record id="envios.idTransportistas_report" model="ir.actions.report">
+        <field name="name">Informe de los Transportistas</field>
+        <field name="model">envios.transportistas</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">envios.transportistas_report_view</field>
+        <field name="report_file">envios.transportistas_report</field>
+        <field name="binding_model_id" ref="model_envios_transportistas"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="transportistas_report_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="transportistas">
+               <t t-call="web.external_layout">
+                   <div class="page">
+                       <h2>Informe</h2>
+                       <h3 t-field="transportistas.nombreTransportista"></h3>
+                       <table class="table table-sm o_main_table">
+                                <thread>
+                                    <tr>
+                                        <th>Dni</th>
+                                        <th>Nombre</th>
+                                        <th>Fecha de Nacimiento</th>
+                                        <th>Nombre del Producto</th>
+                                        <th>Fecha de Reparto</th>
+                                        <th>Cantidad del Producto</th>
+                                        <th>Kilos de Carga</th>
+                                    </tr>
+                                </thread>
+                            <tbody>
+                                <t t-foreach="transportistas.vehiculos_id" t-as="vehiculos">
+                                    <tr>
+                                        <td>
+                                            <span t-field="vehiculos.idVehiculo"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="vehiculos.matriculaVehiculo"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="vehiculos.marcaVehiculo"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="vehiculos.tamañoVehiculo"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="vehiculos.nombreTransportista"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                       </table>
+                   </div>
+               </t>
+            </t>
+        </t>
+    </template>
+
+
+
+
+
+
+
+</odoo>

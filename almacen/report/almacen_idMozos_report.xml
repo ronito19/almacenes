@@ -1,0 +1,64 @@
+<odoo>
+    <record id="almacen.idProductos_report" model="ir.actions.report">
+        <field name="name">Informe de los Productos</field>
+        <field name="model">almacen.productos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">almacen.productos_report_view</field>
+        <field name="report_file">almacen.productos_report</field>
+        <field name="binding_model_id" ref="model_almacen_productos"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="productos_report_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="productos">
+               <t t-call="web.external_layout">
+                   <div class="page">
+                       <h2>Informe</h2>
+                       <h3 t-field="productos.nombreProducto"></h3>
+                            <table class="table table-sm o_main_table">
+                                <thread>
+                                    <tr>
+                                        <th>Dni</th>
+                                        <th>Nombre</th>
+                                        <th>Fecha de Pedido</th>
+                                        <th>Turno del Trabajo</th>
+                                        <th>Edad</th>
+                                    </tr>
+                                </thread>
+                            <tbody>
+                                <t t-foreach="productos.mozos_id" t-as="mozos">
+                                    <tr>
+                                        <td>
+                                            <span t-field="mozos.dniMozo"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="mozos.nombreMozo"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="mozos.fechaNacimiento"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="mozos.turnoTrabajo"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="mozos.edad"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            </table>
+                   </div>
+               </t>
+            </t>
+        </t>
+    </template>
+
+
+
+
+
+
+
+</odoo>
